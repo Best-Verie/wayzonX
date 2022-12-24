@@ -10,7 +10,7 @@ async function bootstrap() {
 		.setTitle('WastezonX')
 		.setDescription('WastezonX API')
 		.setVersion('1.0')
-		.addTag('Manufacturer')
+		.addTag('manufacturer')
 		.build();
 
 	const prismaService = app.get(PrismaService);
@@ -22,6 +22,8 @@ async function bootstrap() {
 
 	SwaggerModule.setup('docs', app, document);
 
-	await app.listen(3000);
+	app.enableCors();
+
+	await app.listen(process.env.APP_PORT || 3000);
 }
 bootstrap();

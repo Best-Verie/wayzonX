@@ -1,31 +1,29 @@
-import {Entity,Column,PrimaryGeneratedColumn} from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
 
 @Entity()
 export class Manufacturer {
-    @PrimaryGeneratedColumn()
-    id: number;
+	@PrimaryGeneratedColumn()
+	id: number;
 
-    @Column()
-    adminEmail: string;
+	@Column()
+	adminEmail: string;
 
-    @Column()
-    companyName: string;
+	@Column()
+	companyName: string;
 
-    @Column()
-    tinNumber: string;
+	@Column()
+	tinNumber: string;
 
-    @Column()
-    streetAddress: string;
+	@Column()
+	streetAddress: string;
 
-    @Column()
-    phoneNumber: string;
+	@Column()
+	phoneNumber: string;
 
-    @Column()
-    password: string;
+	@Column()
+	password: string;
 
-    @Column()
-    companyWebsite: string;
-
-
+	@Column()
+	companyWebsite: string;
 }

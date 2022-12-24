@@ -1,16 +1,16 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
+//import { TypeOrmModule } from '@nestjs/typeorm';
+//import { Manufacturer } from './manufacturer.entity';
 import { ManufacturerController } from './manufacturer.controller';
-import { Manufacturer } from './manufacturer.entity';
 import { ManufacturerService } from './manufacturer.service';
 
 @Module({
-   imports: [
-    TypeOrmModule.forFeature([
-      Manufacturer
-    ])
-  ],
-  controllers: [ManufacturerController],
-  providers: [ManufacturerService]
+	imports: [
+		//TypeOrmModule.forFeature([
+		//  Manufacturer
+		//])
+	],
+	controllers: [ManufacturerController],
+	providers: [ManufacturerService]
 })
-export class ManufacturerModule {}
+export class ManufacturerModule { }
