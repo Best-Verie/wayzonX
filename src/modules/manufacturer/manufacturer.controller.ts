@@ -9,6 +9,7 @@ import {
 } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateManufacturerDTO } from './dto/createManufacturer.dto';
+import { ManufacturerSigninDTO } from './dto/manufacturerSignin.dto';
 import { RegisterManufacturerDTO } from './dto/registerManufacturer.dto';
 import { VerifyManufacturerDTO } from './dto/verifyManufacturer.dto';
 import { ManufacturerService } from './manufacturer.service';
@@ -28,9 +29,6 @@ export class ManufacturerController {
 		return await this.manufacturerService.getManufacturerById(id);
 	}
 
-	//@Post('/register')
-	//async registerManufacturer(@Body() createManufacturerDTO: createManufacturerDTO) { }
-
 	@Post('/register')
 	async registerManufacturer(
 		@Body() manufacturerData: RegisterManufacturerDTO,
@@ -42,19 +40,36 @@ export class ManufacturerController {
 
 	@Post('/verify')
 	async verifyManufacturer(@Body() verifyManufacturer: VerifyManufacturerDTO) {
-		return await this.manufacturerService.verifyManufacturer(verifyManufacturer);
+		return await this.manufacturerService.verifyManufacturer(
+			verifyManufacturer,
+		);
 	}
 
 	@Post('/complete-profile')
 	async comple(@Body() manufactureProfile: CreateManufacturerDTO) {
-		return await this.manufacturerService.createManufactureProfile(manufactureProfile);
+		return await this.manufacturerService.createManufactureProfile(
+			manufactureProfile,
+		);
 	}
 
-
-
 	@Patch(':id')
-	async updateManufacturer(@Param('id') id: string) { }
+	async updateManufacturer(
+		@Param('id') id: string,
+		@Body() manufactureProfile: CreateManufacturerDTO,
+	) {
+		return await this.manufacturerService.updateManufacturer(
+			id,
+			manufactureProfile,
+		);
+	}
 
 	@Delete(':id')
-	async deleteManufacturer(@Param('id') id: string) { }
+	async deleteManufacturer(@Param('id') id: string) {
+		return await this.manufacturerService.deleteManufacturer(id);
+	}
+
+	@Post('/signin')
+	async signIn(@Body() manufacturerSigninDTO: ManufacturerSigninDTO) {
+		return await this.manufacturerService.signIn(manufacturerSigninDTO);
+	}
 }

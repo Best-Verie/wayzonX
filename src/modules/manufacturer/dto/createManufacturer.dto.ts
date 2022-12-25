@@ -8,12 +8,11 @@ export class CreateManufacturerDTO {
 	@IsNotEmpty()
 	name: string;
 
-
 	@ApiProperty({
 		required: true,
 	})
 	@IsNotEmpty()
-	adress: string;
+	address: string;
 
 	@ApiProperty({
 		required: true,
@@ -52,10 +51,15 @@ export class CreateManufacturerDTO {
 	@IsNotEmpty()
 	country: string;
 
-
 	@ApiProperty({
 		required: true,
 	})
 	@IsNotEmpty()
 	state: string;
+
+	@ApiProperty({
+		required: true,
+	})
+	@IsNotEmpty()
+	city: string;
 }

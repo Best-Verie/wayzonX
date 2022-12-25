@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail, IsNotEmpty, IsOptional, Length } from 'class-validator';
+import { IsEmail, IsNotEmpty } from 'class-validator';
 
-export class VerifyManufacturerDTO {
+export class ManufacturerSigninDTO {
   @ApiProperty({
     required: true,
   })
@@ -13,6 +13,5 @@ export class VerifyManufacturerDTO {
     required: true,
   })
   @IsNotEmpty()
-  @Length(6, 6)
-  code: string;
+  password: string;
 }
