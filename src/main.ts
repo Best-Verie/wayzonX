@@ -4,26 +4,25 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 import { PrismaService } from './services/prisma.service';
 
 async function bootstrap() {
-	const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule);
 
-	const options = new DocumentBuilder()
-		.setTitle('WastezonX')
-		.setDescription('WastezonX API')
-		.setVersion('1.0')
-		.addTag('manufacturer')
-		.build();
+  const options = new DocumentBuilder()
+    .setTitle('WastezonX')
+    .setDescription('WastezonX API')
+    .setVersion('1.0')
+    .addTag('manufacturer')
+    .build();
 
-	const prismaService = app.get(PrismaService);
+  const prismaService = app.get(PrismaService);
 
-	await prismaService.enableShutdownHooks(app)
+  await prismaService.enableShutdownHooks(app);
 
+  const document = SwaggerModule.createDocument(app, options);
+  SwaggerModule.setup('docs', app, document);
 
-	const document = SwaggerModule.createDocument(app, options);
+  app.enableCors();
 
-	SwaggerModule.setup('docs', app, document);
-
-	app.enableCors();
-
-	await app.listen(process.env.APP_PORT || 3000);
+  await app.listen(process.env.APP_PORT || 3000);
+  console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();

@@ -1,4 +1,4 @@
 export enum EWorkspaceStatus {
-    active = "ACTIVE",
-    archived = "ARCHIVED"
+  active = 'ACTIVE',
+  archived = 'ARCHIVED',
 }
