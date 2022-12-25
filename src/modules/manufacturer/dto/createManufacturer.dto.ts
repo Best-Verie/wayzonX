@@ -1,55 +1,65 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger';
 import { IsEmail, IsNotEmpty, IsOptional, Length } from 'class-validator';
 
-export class createManufacturerDTO{
-    @ApiProperty({
-        required: true,
-    })
-    @IsNotEmpty()
-    @IsEmail()
-    adminEmail: string;
+export class CreateManufacturerDTO {
+	@ApiProperty({
+		required: true,
+	})
+	@IsNotEmpty()
+	name: string;
 
-    @ApiProperty({
-        required: true,
-    })
-    @IsNotEmpty()
-    companyName: string;
+	@ApiProperty({
+		required: true,
+	})
+	@IsNotEmpty()
+	address: string;
 
-    @ApiProperty({
-        required: true,
-    })
-    @IsNotEmpty()
-    tinNumber: string;
+	@ApiProperty({
+		required: true,
+	})
+	@IsNotEmpty()
+	phoneNumber: string;
 
-    @ApiProperty({
-        required: true,
-    })
-    @IsNotEmpty()
-    streetAddress: string;
+	@ApiProperty({
+		required: true,
+	})
+	@IsNotEmpty()
+	password: string;
 
-    @ApiProperty({
-        required: true,
-    })
-    @IsNotEmpty()
-    phoneNumber: string;
-    
-    @ApiProperty({
-        required: true,
-    })
-    @IsNotEmpty()
-    password: string;
-    
-    @ApiProperty({
-        required: true,
-    })
-    @IsNotEmpty()
-    confirmPassword: string;
-    
-    @ApiProperty({
-        required: true,
-    })
-    @IsNotEmpty()
-    companyWebsite: string;
-    
+	@ApiProperty({
+		required: true,
+	})
+	@IsNotEmpty()
+	confirmPassword: string;
 
+	@ApiProperty({
+		required: true,
+	})
+	@IsNotEmpty()
+	website: string;
+
+	@ApiProperty({
+		required: true,
+	})
+	@IsNotEmpty()
+	@IsEmail()
+	email: string;
+
+	@ApiProperty({
+		required: true,
+	})
+	@IsNotEmpty()
+	country: string;
+
+	@ApiProperty({
+		required: true,
+	})
+	@IsNotEmpty()
+	state: string;
+
+	@ApiProperty({
+		required: true,
+	})
+	@IsNotEmpty()
+	city: string;
 }
